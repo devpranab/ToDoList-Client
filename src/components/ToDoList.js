@@ -1,10 +1,15 @@
 import React from 'react';
+import { Container } from './StyledComponents';
 
 const ToDoList = () => {
     return (
-        <div>
+        <Container>
             <h1>ToDoList</h1>
-        </div>
+            {/* Form component */}
+            {/* ToDoList */}
+            {/* Key */}
+            {/* Author component */}
+        </Container>
     );
 };
 
