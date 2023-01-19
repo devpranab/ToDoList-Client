@@ -1,10 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container } from './StyledComponents';
 import Form from './Form';
+import axios from '../axios';
 
 const ToDoList = () => {
     const [input, setInput] = useState();
-    console.log("input:", input);
+    //console.log("input:", input);
+    const [todos, setTodos] = useState([]);
+
+    const fetchdata = async () => {
+        try {
+        const response = await axios.get("/todos");
+        setTodos(response.data);
+        }
+        catch(error) {
+        console.log(error);
+        console.log(error.message);
+        }
+    }
+
+    useEffect(() => {
+        fetchdata();
+    }, []);
+    
+    const addTodo = async () => {
+        console.log("addedTodo")
+    }
+
+    console.log("todos:", todos);
     
     return (
         <Container>
