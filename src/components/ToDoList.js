@@ -47,7 +47,7 @@ const ToDoList = () => {
             {/* Form component */}
             <Form input={input} setInput={setInput} addTodo={addTodo}/>
             {/* ToDoList */}
-            <ShowToDo todos={todos}/>
+            <ShowToDo todos={todos} fetchData={fetchdata}/>
             {/* Key */}
             {/* Author component */}
         </Container>

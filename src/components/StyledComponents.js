@@ -57,8 +57,11 @@ export const Row = styled.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0;
+  padding: 10px;
   font-size: 1rem;
+  background-color: #111;
+  color: #fff;
+  margin-top: 5px;
 `;
 
 export const Text = styled.span`

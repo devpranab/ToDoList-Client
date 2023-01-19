@@ -1,20 +1,50 @@
 import React from "react";
+import axios from "../axios";
 import { ListContainer, Row, Text, DeleteIcon } from "./StyledComponents";
 
-const ShowToDo = ({todos}) => {
-    console.log(todos);
+function ShowToDo({ todos, fetchData }) {
+  const updateTodo = async (id) => {
+    try {
+      const response = await axios.put(`/todos/${id}`, {
+        id,
+      });
+      fetchData();
+      return response.data.json;
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  const deleteTodo = async (id) => {
+    try {
+      const response = await axios.delete(`/todos/${id}`, {
+        id,
+      });
+      fetchData();
+      return response.data.json;
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
   return (
     <div>
       <ListContainer>
-        {/* render all todos in bullet points */}
         {todos?.map((todo) => (
           <Row key={todo._id}>
-            <Text>{todo.text}</Text>
+            <Text onClick={() => updateTodo(todo._id)}
+              isCompleted={todo.completed}>{todo.text}</Text>
+            <DeleteIcon
+              data-testid="close"
+              onClick={() => deleteTodo(todo._id)}
+            >
+              X
+            </DeleteIcon>
           </Row>
         ))}
       </ListContainer>
     </div>
   );
-};
+}
 
 export default ShowToDo;
