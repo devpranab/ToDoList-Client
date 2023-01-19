@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container } from './StyledComponents';
 import Form from './Form';
 import axios from '../axios';
+import ShowToDo from './ShowToDo';
 
 const ToDoList = () => {
     const [input, setInput] = useState();
@@ -38,7 +39,7 @@ const ToDoList = () => {
         console.log("AddedTodo")
       };
 
-    console.log("todos:", todos);
+    //console.log("todos:", todos);
     
     return (
         <Container>
@@ -46,6 +47,7 @@ const ToDoList = () => {
             {/* Form component */}
             <Form input={input} setInput={setInput} addTodo={addTodo}/>
             {/* ToDoList */}
+            <ShowToDo todos={todos}/>
             {/* Key */}
             {/* Author component */}
         </Container>

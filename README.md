@@ -7,5 +7,6 @@
 6. Complete The Backend Creating A Todo Controller
 7. How To Fetch Data From The API In React
 8. Add A Todo To MongoDB on React Frontend With A Post Request
-9. Finish The Todo List With Update _ Delete Request To MongoDB
-10. Finishing Off The Todo App
+9. show all todos in ui
+10. Finish The Todo List With Update _ Delete Request To MongoDB
+11. Finishing Off The Todo App
