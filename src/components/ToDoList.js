@@ -23,9 +23,20 @@ const ToDoList = () => {
         fetchdata();
     }, []);
     
-    const addTodo = async () => {
-        console.log("addedTodo")
-    }
+    const addTodo = async (e) => {
+        e.preventDefault();
+        if (input.length === 0) return null;
+        await axios.post("/todos", [
+          {
+            ...todos,
+            text: input,
+            completed: false,
+          },
+        ]);
+        fetchdata();
+        setInput("");
+        console.log("AddedTodo")
+      };
 
     console.log("todos:", todos);
     
@@ -33,7 +44,7 @@ const ToDoList = () => {
         <Container>
             <h1>ToDoList</h1>
             {/* Form component */}
-            <Form input={input} setInput={setInput}/>
+            <Form input={input} setInput={setInput} addTodo={addTodo}/>
             {/* ToDoList */}
             {/* Key */}
             {/* Author component */}
